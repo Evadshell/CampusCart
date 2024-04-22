@@ -1,9 +1,15 @@
 import './App.css';
 import React from 'react'
-
+import Header from './Header';
+import Footer from './Footer';
+import Body from './Body';
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <Header />
+      <Body />
+      <Footer />
+    </div>
   )
 }
 
