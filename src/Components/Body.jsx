@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React,{useEffect, useState} from 'react'
 import Axios from 'axios';
-import env from "dotenv";
-const URL = process.env.URL;
+
 const Body = () => {
+    
     const [data,setdata] = useState("");
     const getdata = async()=>{
-        const response = await Axios.get(`${URL}/getData`);
+        const response = await Axios.get(`http://localhost:5000/getData`);
         setdata(response.data);
     }
     useEffect(()=>{
@@ -17,4 +17,4 @@ const Body = () => {
   )
 }
 
-export default Body
+export default Body;
