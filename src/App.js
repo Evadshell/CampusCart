@@ -3,21 +3,20 @@ import React from 'react'
 import {Routes,Route} from "react-router-dom";
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import Body from './Components/Body';
 import Login from './Components/Login';
 import Home from './Components/Home';
-
+import Store from './Components/Store';
 const App = () => {
   return (
-    <div>
+      <div className="app-container">
       <Header />
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/login' element={<Login />} />
-        
-
-
-      </Routes>
+      <div className="content">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path="store/:id" element={<Store />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   )
