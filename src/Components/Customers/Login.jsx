@@ -5,7 +5,9 @@ import {
   CardHeader,
   Center,
   CardBody,
+  Text,
 } from "@chakra-ui/react";
+import Header from "./Header";
 
 const Login = () => {
   const loginwithgoogle = () => {
@@ -13,6 +15,8 @@ const Login = () => {
   };
   return (
     <div>
+            <Header />
+
       <Center h="100vh">
         <Card bg="gray.700" borderRadius="xl">
           <CardHeader textAlign="center" color="white" py={4} fontWeight="bold">
@@ -25,6 +29,18 @@ const Login = () => {
                   Sign in with Google
                 </Button>
               </Center>
+              <Text
+                style={{
+                  margin: "15px 0 0",
+                  color: "#b3b3b3",
+                  fontSize: "16px",
+                  textAlign: "center",
+                }}
+              >
+                <a href="/merchantlogin" style={{ color: "#4CAF50", textDecoration: "none" }}>
+  Merchant Login
+</a>
+              </Text>
             </form>
           </CardBody>
         </Card>

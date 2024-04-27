@@ -15,8 +15,9 @@ import {
 } from "@chakra-ui/react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Cart from "./Cart";
-import Products from "./SubComponents/Products";
+import Products from "./NavComponents/SubComponents/Products";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 const Store = () => {
   const navigate = useNavigate();
 
@@ -83,6 +84,8 @@ const Store = () => {
 
   return (
     <div>
+            <Header />
+
       <Flex
         justifyContent="space-between"
         alignItems="center"

@@ -16,7 +16,8 @@ import {
   Heading,
   VStack,
 } from "@chakra-ui/react";
-import Stores from "./SubComponents/Stores";
+import Stores from "./NavComponents/SubComponents/Stores";
+import Header from "./Header";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -61,6 +62,8 @@ const Home = () => {
   };
   return (
     <div>
+            <Header />
+
       <Center>
         <Select
           placeholder="Category"
