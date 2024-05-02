@@ -42,6 +42,7 @@ function logout() {
           if (store && store.owner_shop) { // Check if store and store.owner_shop are not null
             const response = await axios.get(`http://localhost:5000/products?store_name=${store.owner_shop}`);
             // console.log(response);
+            console.log(store);
             Setproducts(response.data.products);
           }
         } catch (error) {
@@ -59,6 +60,27 @@ function logout() {
       const [productQuantity, setProductQuantity] = useState("");
       const [productCategory, setProductCategory] = useState("");
       const [productImage, setProductImage] = useState(null);
+// var store_name;
+//       if(store && store.owner_shop){
+//        store_name = store.owner_shop;
+//       }
+//       console.log(store_name);
+const[StoreName,setStoreName]= useState("");
+const[StoreId,setStoreId]= useState("");
+
+console.log(store);
+useEffect(() => {
+  if (store && store.owner_shop) {
+    // This code will run whenever store.owner_shop changes
+    // It ensures that store_name is updated after store.owner_shop changes
+    setStoreName(store.owner_shop);
+    setStoreId(store.id);
+  }
+}, [store]); // Listen for changes in the store object
+console.log(StoreName);
+      
+      // const store_id = 
+      // console.log(store.owner_shop);
       const handleImageChange = (e) => {
         const file = e.target.files[0];
         console.log("Selected file:", file);
@@ -72,18 +94,24 @@ function logout() {
         console.log("productCategory:", productCategory);
         console.log("productImage:", productImage);
         console.log("Submitting form...");
-        const formData = {
-          productName,
-          productPrice,
-          productQuantity,
-          productCategory,
-          productImage: productImage ? productImage.name : null // Assuming you only need the image name
-        };
-      
+       
+  const formData = new FormData();
+  formData.append('productName', productName);
+  formData.append('productPrice', productPrice);
+  formData.append('productQuantity', productQuantity);
+  formData.append('productCategory', productCategory);
+  formData.append('productImage', productImage); // Append the actual file data
+
+  // Append StoreName and StoreId to formData if needed
+  formData.append('StoreName', StoreName);
+  formData.append('StoreId', StoreId);
         console.log("FormData:", formData);
       
         try {
-          const response = await axios.post('http://localhost:5000/addproduct', formData);
+          const response = await axios.post('http://localhost:5000/addproduct', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }});
           console.log(response.data); // Assuming the server responds with some data
         } catch (error) {
           console.error('Error adding product:', error);

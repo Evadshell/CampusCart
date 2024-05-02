@@ -1,4 +1,5 @@
 import React from "react";
+import "./ProductGrid.css";
 import {
   Box,
   Button,
@@ -11,14 +12,14 @@ import {
   ModalBody,
   ModalCloseButton,
   Text,
-  Image, 
+  Image,
   FormControl,
   FormLabel,
   Input,
 } from "@chakra-ui/react";
 import axios from "axios";
 const ProductGrid = ({ products }) => {
-  const [showModal, setShowModal] = React.useState(false); 
+  const [showModal, setShowModal] = React.useState(false);
   const [selectedProduct, setSelectedProduct] = React.useState(null);
   const [updatedProductName, setUpdatedProductName] = React.useState("");
   const [updatedProductPrice, setUpdatedProductPrice] = React.useState("");
@@ -64,18 +65,17 @@ const ProductGrid = ({ products }) => {
   return (
     <>
     <Box display="flex" flexWrap="wrap" justifyContent="space-between" gap={4}>
-        
+
       {products.map((product) => (
         <Box key={product.id} p="4" borderWidth="1px" borderRadius="md" boxShadow="md" overflow="hidden" bg="white" flexBasis="calc(16.666% - 16px)" maxWidth="calc(16.666% - 16px)">
-        <Image src={product.product_image} alt={product.product_name} h="200px" objectFit="cover" mb="4" />
-        <Text fontSize="xl" fontWeight="semibold" mb="2">{product.product_name}</Text>
-        <Text fontSize="lg" fontWeight="bold" color="blue.500" mb="2">${product.product_price}</Text>
-        <Text fontSize="sm" mb="4">{product.product_category}</Text>
-        <Text fontSize="sm" mb="4">{product.product_quantity}</Text>
-
-            <Button mt="4" onClick={() => handleShowModal(product)}>Update</Button>
+        <Image src={`http://localhost:5000/${product.product_image}`} alt={product.product_name} h="200px" objectFit="cover" mb="4" />
+        <Text className="black-text" fontSize="xl" fontWeight="semibold" mb="2">{product.product_name}</Text>
+        <Text className="black-text" fontSize="lg" fontWeight="bold" color="blue.500" mb="2">${product.product_price}</Text>
+        <Text className="black-text" fontSize="sm" mb="4">{product.product_category}</Text>
+        <Text className="black-text" fontSize="sm" mb="4">{product.product_quantity}</Text>
+            <Button colorScheme="blue" mt="4" onClick={() => handleShowModal(product)}>Update</Button>
           </Box>
-        
+
       ))}</Box>
       <Modal isOpen={showModal} onClose={handleCloseModal}>
         <ModalOverlay />
