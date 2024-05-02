@@ -51,21 +51,17 @@ const Orders = (props) => {
               maxH="400px" // Fixed height for each order card
               overflowY="auto" // Enable vertical scrolling if content exceeds height
             >
-              <Text fontWeight="bold">{order.ordered_by_name}</Text>
-              <Text fontSize="sm">{order.ordered_by_contact}</Text>
-              <Text fontSize="sm" fontStyle="italic">{order.ordered_by_address}</Text>
-              
-              <Text fontWeight="bold" mt={2}>Items:</Text>
+              <Text fontWeight="bold" color="black">{order.ordered_by_name}</Text>
+<Text fontSize="sm" color="black">{order.ordered_by_contact}</Text>
+<Text fontSize="sm" fontStyle="italic" color="black">{order.ordered_by_address}</Text>
+<Text fontWeight="bold" mt={2} color="black">Items:</Text>
               <Box mt={1} maxH="150px" overflowY="auto"> 
                 {orderedItems.map((item, index) => (
-                  <Text key={index} fontSize="xs">{item}</Text> 
-                ))}
+ <Text key={index} fontSize="xs" color="black">{item}</Text>                ))}
               </Box>
               <Text fontWeight="bold" color="blue" mt={2}>Price:</Text>
-  <Text fontSize="sm">
-    ₹{order.total_price} 
-  </Text>
-              <Text fontSize="xs" fontStyle="italic" mt={2}>Time Ordered: {new Date(order.date_time).toLocaleString()}</Text>
+<Text fontSize="sm" color="black">₹{order.total_price}</Text>
+<Text fontSize="xs" fontStyle="italic" mt={2} color="black">Time Ordered: {new Date(order.date_time).toLocaleString()}</Text>
             </Box>
           );
         };

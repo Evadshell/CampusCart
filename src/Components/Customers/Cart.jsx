@@ -143,7 +143,7 @@ let stores;
                       maxW={{ base: "100%", sm: "200px" }}
                       src={item.product_image}
                     />
-
+{console.log(item.product_image)}
                     <Stack>
                       <CardBody>
                         <Heading size="md">{item.product_name}</Heading>

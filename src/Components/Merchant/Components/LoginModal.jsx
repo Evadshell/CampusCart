@@ -31,9 +31,9 @@ const LoginModal = (props) => {
             <ModalBody>
               <Flex align="center" justify="center" minHeight="100vh">
                 <Box width="400px" p="6" boxShadow="lg" rounded="md" bg="white">
-                  <Text fontSize="xl" fontWeight="semibold" mb="4">
-                    Login
-                  </Text>
+                <Text fontSize="xl" fontWeight="semibold" mb="4" color="black">
+  Login
+</Text>
                   {Error && (
                     <Alert status="error" mb="4">
                       <AlertIcon />
@@ -42,21 +42,25 @@ const LoginModal = (props) => {
                   )}
                   <form onSubmit={HandleSubmit}>
                     <FormControl mb="4">
-                      <FormLabel>Username</FormLabel>
+                      <FormLabel  color="black" >Username</FormLabel>
                       <Input
                         type="text"
                         placeholder="Enter your username"
                         value={ValueUsername}
                         onChange={OnchangeUsername}
+                        color="black"
+                        _placeholder={{ color: 'black' }} 
                       />
                     </FormControl>
                     <FormControl mb="4">
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel  color="black" >Password</FormLabel>
                       <Input
                         type="password"
                         placeholder="Enter your password"
                         value={ValuePassword}
                         onChange={OnchangePassword}
+                        _placeholder={{ color: 'black' }} 
+                        color="black"
                       />
                     </FormControl>
                     <Button type="submit" colorScheme="teal" width="full">
